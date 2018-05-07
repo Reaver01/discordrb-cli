@@ -14,7 +14,8 @@
 - .e                  Evaluates code
 - .exit               Exits the program
 
-#setup 
+#setup  
+
 copy dotenv.sample to .env
 put your token in TOKEN_STRING your user id in OWNER_ID and the channels you want it to start with in CHANNEL1 and CHANNEL2
 run bundle install
