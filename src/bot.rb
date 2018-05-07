@@ -30,8 +30,8 @@ module Bot
   
   Discordrb::LOGGER.streams = [NullLogger.new]
   
-  $channel = 0
-  $monitor = 0
+  $channel = ENV['CHANNEL1']
+  $monitor = ENV['CHANNEL2']
   $last_mention = 0
   
   Thread.new { BOT.run }

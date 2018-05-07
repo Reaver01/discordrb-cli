@@ -13,3 +13,9 @@
 - .lc <server_id>     Lists channel IDs of current server or of specified server if server_id is supplied
 - .e                  Evaluates code
 - .exit               Exits the program
+
+#setup 
+copy dotenv.sample to .env
+put your token in TOKEN_STRING your user id in OWNER_ID and the channels you want it to start with in CHANNEL1 and CHANNEL2
+run bundle install
+start client with ruby run.rb
