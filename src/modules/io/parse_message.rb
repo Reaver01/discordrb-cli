@@ -9,7 +9,7 @@ def parse_message(message)
 
   # Regular messages
   elsif message.channel.id == $channel
-    puts "[#{time}][#{"@#{message.user.name}##{message.user.tag}".blue}] #{message.content}"
+    puts "[#{time}][#{"@#{message.user.name}##{message.user.tag}".blue}] #{message.content.light_cyan}"
 
   # Direct Messages
   elsif message.channel.type == 1
