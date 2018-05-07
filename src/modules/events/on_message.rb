@@ -1,5 +1,6 @@
 module Bot
   module Events
+    # The Message Module
     module Message
       extend Discordrb::EventContainer
       message do |event|
