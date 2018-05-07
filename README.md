@@ -1,6 +1,6 @@
-##discrordrb-cli 
+## discrordrb-cli 
 
-#Commands: 
+# Commands
 - .cc <channel_id>    Changes channel
 - .cm <channel_id>    Changes monitored channel
 - .hi                 Shows history of current channel
@@ -14,7 +14,7 @@
 - .e                  Evaluates code
 - .exit               Exits the program
 
-#setup  
+# Setup  
 
 copy dotenv.sample to .env
 put your token in TOKEN_STRING your user id in OWNER_ID and the channels you want it to start with in CHANNEL1 and CHANNEL2
