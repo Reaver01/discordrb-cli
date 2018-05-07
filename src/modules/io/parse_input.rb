@@ -62,12 +62,16 @@ def parse_input(input)
       if $last_mention == 0
         puts 'You have no mentions this session'
       else
-        Bot::BOT.send_message($last_mention, input[4, input.length])
+        unless input.length < 5
+          Bot::BOT.send_message($last_mention, input[4, input.length])
+        end
       end
 
     # reply to monitor channel
     elsif input[0, 3] == '.rm'
-      Bot::BOT.send_message($monitor, input[4, input.length])
+      unless input.length < 5
+        Bot::BOT.send_message($monitor, input[4, input.length])
+      end
 
     # Eval code
     elsif input[0, 2] == '.e'
