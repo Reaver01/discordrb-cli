@@ -11,14 +11,14 @@ def parse_message(message)
 
   # Channel 1 Messages
   elsif message.channel.id == $channel1
-    info = 'light_magenta'
+    info = 'light_yellow'
     text = 'light_cyan'
     display = true
 
   # Channel 2 Messages
   elsif message.channel.id == $channel2
     info = 'light_green'
-    text = 'magenta'
+    text = 'light_magenta'
     display = true
 
   # Channel 3 Messages
