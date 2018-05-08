@@ -37,8 +37,8 @@ def parse_input(input)
       begin
         history = Bot::BOT.channel($channel1).history(20)
         history.reverse_each { |message| parse_message(message) }
-      rescue StandardError => _error
-        puts 'Cannot retrieve message history'
+      rescue StandardError => error
+        puts error
       end
 
     # Show history of Channel 2
