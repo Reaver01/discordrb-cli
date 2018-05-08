@@ -29,6 +29,7 @@ module Bot
 
   Discordrb::LOGGER.streams = [NullLogger.new]
 
+  $colors = ['light_red', 'light_green', 'light_yellow', 'light_blue', 'light_magenta', 'light_cyan'].shuffle
   $channel1 = ENV['CHANNEL1'].to_i
   $channel2 = ENV['CHANNEL2'].to_i
   $channel3 = ENV['CHANNEL3'].to_i
@@ -40,6 +41,7 @@ module Bot
 
   while input != '.exit'
     input = gets.chomp
+    input = input.gsub!('\n', "\n") if input.include? '\n'
     parse_input(input) unless input == '.exit'
   end
 end

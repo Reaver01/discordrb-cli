@@ -5,26 +5,26 @@ def parse_message(message)
   # Mentions
   if message.mentions.include? Bot::BOT.user(ENV['OWNER'].to_i)
     $last_mention = message.channel.id
-    info = 'red'
-    message = 'yellow'
+    info = 'green'
+    message = 'red'
     display = true
 
   # Channel 1 Messages
   elsif message.channel.id == $channel1
-    info = 'light_yellow'
-    text = 'light_cyan'
+    info = $colors[0]
+    text = $colors[1]
     display = true
 
   # Channel 2 Messages
   elsif message.channel.id == $channel2
-    info = 'light_green'
-    text = 'light_magenta'
+    info = $colors[2]
+    text = $colors[3]
     display = true
 
   # Channel 3 Messages
   elsif message.channel.id == $channel3
-    info = 'yellow'
-    text = 'light_red'
+    info = $colors[4]
+    text = $colors[5]
     display = true
 
   # Direct Messages
