@@ -1,12 +1,10 @@
 def parse_message(message)
-  time = message.timestamp.strftime('%I:%M%p')
-  display = false
 
   # Mentions
   if message.mentions.include? Bot::BOT.user(ENV['OWNER'].to_i)
     $last_mention = message.channel.id
     info = 'green'
-    message = 'red'
+    text = 'red'
     display = true
 
   # Channel 1 Messages
@@ -33,12 +31,15 @@ def parse_message(message)
     info = 'red'
     text = 'green'
     display = true
+  else
+
+    display = false
   end
   
   # display messages
   if display
-    puts "[#{time}][<@#{message.user.id}>][#{message.channel.id}][@#{message.user.name}##{message.user.tag}]".colorize(:"#{info}")
+    puts "[#{message.timestamp.strftime('%I:%M%p')}][<@#{message.user.id}>][#{message.channel.id}][@#{message.user.name}##{message.user.tag}]".colorize(:"#{info}")
     puts message.content.colorize(:"#{text}")
-    puts message.attachments.first.proxy_url unless message.attachments.first.nil?
+    puts message.attachments.first.proxy_url if message.attachments.first
   end
 end

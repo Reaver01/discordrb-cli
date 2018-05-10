@@ -37,7 +37,15 @@ module Bot
 
   Thread.new { BOT.run }
 
-  input = ''
+  input = String.new
+  
+  puts "Connected to:\n"\
+       "#{"[Channel 1]".colorize(:"#{$colors[0]}")} #{"#{BOT.channel($channel1).server.name} / "\
+       "#{BOT.channel($channel1).name}".colorize(:"#{$colors[1]}")}\n"\
+       "#{"[Channel 2]".colorize(:"#{$colors[2]}")} #{"#{BOT.channel($channel2).server.name} / "\
+       "#{BOT.channel($channel2).name}".colorize(:"#{$colors[3]}")}\n"\
+       "#{"[Channel 3]".colorize(:"#{$colors[4]}")} #{"#{BOT.channel($channel3).server.name} / "\
+       "#{BOT.channel($channel3).name}".colorize(:"#{$colors[5]}")}"\
 
   while input != '.exit'
     input = gets.chomp
