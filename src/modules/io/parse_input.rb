@@ -152,22 +152,18 @@ module Bot
         end
 
       elsif command == "#{PREFIX}tableflip"
-        BOT.send_message(CHANNELS[0], '(╯°□°）╯︵ ┻━┻')
-
-      elsif command == "#{PREFIX}tableflip2"
-        BOT.send_message(CHANNELS[1], '(╯°□°）╯︵ ┻━┻')
-
-      elsif command == "#{PREFIX}tableflip3"
-        BOT.send_message(CHANNELS[2], '(╯°□°）╯︵ ┻━┻')
+        if 0 <= channel_id && channel_id <= 3
+          BOT.send_message(CHANNELS[channel_id], '(╯°□°）╯︵ ┻━┻')
+        else
+          puts 'Invalid Channel'
+        end
 
       elsif command == "#{PREFIX}shrug"
-        BOT.send_message(CHANNELS[0], '¯\_(ツ)_/¯')
-
-      elsif command == "#{PREFIX}shrug2"
-        BOT.send_message(CHANNELS[1], '¯\_(ツ)_/¯')
-
-      elsif command == "#{PREFIX}shrug3"
-        BOT.send_message(CHANNELS[2], '¯\_(ツ)_/¯')
+        if 0 <= channel_id && channel_id <= 3
+          BOT.send_message(CHANNELS[channel_id], '¯\_(ツ)_/¯')
+        else
+          puts 'Invalid Channel'
+        end
 
       else
         puts 'Invalid input'
