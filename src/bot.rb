@@ -48,6 +48,6 @@ module Bot
   while input != '.exit'
     input = gets.chomp
     input = input.gsub!('\n', "\n") if input.include? '\n'
-    parse_input(input) unless input == '.exit'
+    parse_input(input) unless input == "#{PREFIX}exit"
   end
 end
