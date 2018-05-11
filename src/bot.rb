@@ -20,8 +20,6 @@ module Bot
                                             help_available: false,
                                             debug: false
 
-  BOT.set_user_permission(ENV['OWNER'].to_i, 1)
-
   Dir['src/modules/events/*.rb'].each { |mod| load mod }
   Events.constants.each { |mod| BOT.include! Events.const_get mod }
 
