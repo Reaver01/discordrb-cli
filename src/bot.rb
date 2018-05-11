@@ -10,15 +10,12 @@ module Bot
   PREFIX = '.'.freeze
   Dotenv.load
 
-  BOT = Discordrb::Commands::CommandBot.new token: ENV['TOKEN'],
-                                            prefix: PREFIX,
-                                            advanced_functionality: false,
-                                            ignore_bots: false,
-                                            type: :user,
+  BOT = Discordrb::Commands::CommandBot.new help_available: false,
                                             help_command: false,
                                             parse_self: true,
-                                            help_available: false,
-                                            debug: false
+                                            prefix: PREFIX,
+                                            token: ENV['TOKEN'],
+                                            type: :user
 
   Dir['src/modules/events/*.rb'].each { |mod| load mod }
   Events.constants.each { |mod| BOT.include! Events.const_get mod }
