@@ -5,11 +5,12 @@ module Bot
       input = input.split(" ")
       command = input[0]
       input.shift
-      args = String.new
-      channel_id = 0
       if input.any?
         args = input.join(" ")
         channel_id = args.to_i if args.match? /\A\d+\z/
+      else
+        args = String.new
+        channel_id = 0
       end
 
       # change Channel 1

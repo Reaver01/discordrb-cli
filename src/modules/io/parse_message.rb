@@ -1,8 +1,7 @@
 module Bot
   extend Bot
   def parse_message(message)
-    
-    color = Array.new
+
     color = if message.mentions.include? BOT.user(ENV['OWNER'].to_i)
             ['green', 'red']
           elsif message.channel.id == CHANNELS[0]
@@ -13,6 +12,8 @@ module Bot
             [COLORS[2][0], COLORS[2][1]]
           elsif message.channel.type == 1
             ['red', 'green']
+          else
+            Array.new
           end
 
     CHANNELS[3] = message.channel.id if message.mentions.include? BOT.user(ENV['OWNER'].to_i) || message.channel.type == 1
