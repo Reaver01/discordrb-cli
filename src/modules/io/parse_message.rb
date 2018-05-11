@@ -9,20 +9,20 @@ def parse_message(message)
 
   # Channel 1 Messages
   elsif message.channel.id == $channel1
-    info = $colors[0]
-    text = $colors[1]
+    info = $color1[0]
+    text = $color1[1]
     display = true
 
   # Channel 2 Messages
   elsif message.channel.id == $channel2
-    info = $colors[2]
-    text = $colors[3]
+    info = $color2[0]
+    text = $color2[1]
     display = true
 
   # Channel 3 Messages
   elsif message.channel.id == $channel3
-    info = $colors[4]
-    text = $colors[5]
+    info = $color2[0]
+    text = $color2[1]
     display = true
 
   # Direct Messages
@@ -38,8 +38,12 @@ def parse_message(message)
   
   # display messages
   if display
-    puts "[#{message.timestamp.strftime('%I:%M%p')}][<@#{message.user.id}>][#{message.channel.id}][@#{message.user.name}##{message.user.tag}]".colorize(:"#{info}")
-    puts message.content.colorize(:"#{text}")
-    puts message.attachments.first.proxy_url if message.attachments.first
+    begin
+      puts "[#{message.timestamp.strftime('%I:%M%p')}][<@#{message.user.id}>][#{message.channel.id}][@#{message.user.name}##{message.user.tag}]".colorize(:"#{info}")
+      puts message.content.colorize(:"#{text}")
+      puts message.attachments.first.proxy_url if message.attachments.first
+    rescue error
+      puts error
+    end
   end
 end

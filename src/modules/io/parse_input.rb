@@ -64,6 +64,9 @@ def parse_input(input)
       temp = $channel2
       $channel2 = $channel1
       $channel1 = temp
+      temp = $color2
+      $color2 = $color1
+      $color1 = temp
       puts 'Channels swapped'
 
     # switch Channel 2 and 3
@@ -71,6 +74,9 @@ def parse_input(input)
       temp = $channel2
       $channel2 = $channel3
       $channel3 = temp
+      temp = $color2
+      $color2 = $color3
+      $color3 = temp
       puts 'Channels swapped'
 
     # switch Channel 1 and 3
@@ -78,6 +84,9 @@ def parse_input(input)
       temp = $channel3
       $channel3 = $channel1
       $channel1 = temp
+      temp = $color3
+      $color3 = $color1
+      $color1 = temp
       puts 'Channels swapped'
 
     # change channel 1 to last reply
