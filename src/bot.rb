@@ -41,7 +41,7 @@ module Bot
   Thread.new { BOT.run }
 
   input = String.new
-  
+
   puts "Connected to:\n"\
        "#{"[Channel 1]".colorize(:"#{$color1[0]}")} #{"#{BOT.channel($channel1).server.name} / "\
        "#{BOT.channel($channel1).name}".colorize(:"#{$color1[1]}")}\n"\
