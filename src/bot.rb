@@ -24,26 +24,21 @@ module Bot
 
   Discordrb::LOGGER.streams = [NullLogger.new]
 
-  colors = ['light_red', 'light_green', 'light_yellow', 'light_blue', 'light_magenta', 'light_cyan'].shuffle
-  $color1 = colors[0 .. 1]
-  $color2 = colors[2 .. 3]
-  $color3 = colors[4 .. 5]
-  $channel1 = ENV['CHANNEL1'].to_i
-  $channel2 = ENV['CHANNEL2'].to_i
-  $channel3 = ENV['CHANNEL3'].to_i
-  $last_mention = 0
+  col = ['light_red', 'light_green', 'light_yellow', 'light_blue', 'light_magenta', 'light_cyan'].shuffle
+  COLORS = [col[0 .. 1], col[2 .. 3], col[4 .. 5]]
+  CHANNELS = [ENV['CHANNEL1'].to_i, ENV['CHANNEL2'].to_i, ENV['CHANNEL3'].to_i, 0]
 
   Thread.new { BOT.run }
 
   input = String.new
 
   puts "Connected to:\n"\
-       "#{"[Channel 1]".colorize(:"#{$color1[0]}")} #{"#{BOT.channel($channel1).server.name} / "\
-       "#{BOT.channel($channel1).name}".colorize(:"#{$color1[1]}")}\n"\
-       "#{"[Channel 2]".colorize(:"#{$color2[0]}")} #{"#{BOT.channel($channel2).server.name} / "\
-       "#{BOT.channel($channel2).name}".colorize(:"#{$color2[1]}")}\n"\
-       "#{"[Channel 3]".colorize(:"#{$color3[0]}")} #{"#{BOT.channel($channel3).server.name} / "\
-       "#{BOT.channel($channel3).name}".colorize(:"#{$color3[1]}")}"\
+       "#{"[Channel 1]".colorize(:"#{COLORS[0][0]}")} #{"#{BOT.channel(CHANNELS[0]).server.name} / "\
+       "#{BOT.channel(CHANNELS[0]).name}".colorize(:"#{COLORS[0][1]}")}\n"\
+       "#{"[Channel 2]".colorize(:"#{COLORS[1][0]}")} #{"#{BOT.channel(CHANNELS[1]).server.name} / "\
+       "#{BOT.channel(CHANNELS[1]).name}".colorize(:"#{COLORS[1][1]}")}\n"\
+       "#{"[Channel 3]".colorize(:"#{COLORS[2][0]}")} #{"#{BOT.channel(CHANNELS[2]).server.name} / "\
+       "#{BOT.channel(CHANNELS[2]).name}".colorize(:"#{COLORS[2][1]}")}"\
 
   while input != '.exit'
     input = gets.chomp

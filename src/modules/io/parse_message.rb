@@ -4,32 +4,32 @@ module Bot
 
     # Mentions
     if message.mentions.include? BOT.user(ENV['OWNER'].to_i)
-      $last_mention = message.channel.id
+      CHANNELS[3] = message.channel.id
       info = 'green'
       text = 'red'
       display = true
 
     # Channel 1 Messages
-    elsif message.channel.id == $channel1
-      info = $color1[0]
-      text = $color1[1]
+    elsif message.channel.id == CHANNELS[0]
+      info = COLORS[0][0]
+      text = COLORS[0][1]
       display = true
 
     # Channel 2 Messages
-    elsif message.channel.id == $channel2
-      info = $color2[0]
-      text = $color2[1]
+    elsif message.channel.id == CHANNELS[1]
+      info = COLORS[1][0]
+      text = COLORS[1][1]
       display = true
 
     # Channel 3 Messages
-    elsif message.channel.id == $channel3
-      info = $color2[0]
-      text = $color2[1]
+    elsif message.channel.id == CHANNELS[2]
+      info = COLORS[2][0]
+      text = COLORS[2][1]
       display = true
 
     # Direct Messages
     elsif message.channel.type == 1
-      $last_mention = message.channel.id
+      CHANNELS[3] = message.channel.id
       info = 'red'
       text = 'green'
       display = true
